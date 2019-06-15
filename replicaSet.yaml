@@ -4,7 +4,7 @@ metadata:
   name: my-replica
   namespace: development
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: my-replica
@@ -15,15 +15,4 @@ spec:
     spec:
       containers:
       - name: nginx-rs
-        image: nginx
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-        lifecycle:
-          preStop:
-            exec:
-              command: [
-                # Gracefully shutdown nginx
-                "/usr/sbin/nginx", "-s", "quit"
-              ]
+        image: nginx:latest

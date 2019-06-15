@@ -4,8 +4,8 @@
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: mem-limit-range
-  namespace: example
+  name: cpu-mem-limitrange
+  namespace: development
 spec:
   limits:
   - default:  # default limit
