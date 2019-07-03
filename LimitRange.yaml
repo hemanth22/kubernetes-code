@@ -5,21 +5,20 @@ apiVersion: v1
 kind: LimitRange
 metadata:
   name: cpu-mem-limitrange
-  namespace: development
 spec:
   limits:
   - default:  # default limit
-      memory: 512Mi
-      cpu: 2
+      memory: 102Mi
+      cpu: 0.3
     defaultRequest:  # default request
-      memory: 256Mi
-      cpu: 0.5
+      memory: 56Mi
+      cpu: 0.2
     max:  # max limit
       memory: 800Mi
       cpu: 3
     min:  # min request
       memory: 100Mi
-      cpu: 0.3
+      cpu: 0.2
     maxLimitRequestRatio:  # max value for limit / request
       memory: 2
       cpu: 2

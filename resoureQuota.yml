@@ -9,5 +9,5 @@ spec:
     # 1 core = 1000 millicores
     cpu: "800m"
     memory: "750Mi"
-    replicaset: "2"
-    deployment: "1"
+#    replicaset: "2"
+#    deployment: "1"

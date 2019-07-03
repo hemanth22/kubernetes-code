@@ -10,10 +10,12 @@ spec:
     image: nginx:latest
     resources:
      # This will be intial amount of resources allocated to the POD when its created
+     # A core can be further broken down into 1000 millicores
       requests:
-        cpu: "300m"
+        cpu: "150m"
         memory: "100Mi"
      # This will be tbe maximum amount of resources your POD can claim
+     # To provide the requests and limits as the same. BEST practise
       limits:
         cpu: "325m"
         memory: "175Mi"
