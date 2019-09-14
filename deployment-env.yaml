@@ -20,8 +20,8 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: App
+        - name: JAVA_HOME_PRD
           valueFrom:
             configMapKeyRef:
-              name: cm-demo
-              key: App 
+              name: java-prd
+              key: JAVA_HOME_PRD

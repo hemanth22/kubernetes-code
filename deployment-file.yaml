@@ -20,9 +20,9 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-          - name: my-configxml
+          - name: config-prd
             mountPath: /usr/src/app/config
       volumes:
-      - name: my-configxml
+      - name: config-prd
         configMap:
-          name: my-configxml
+          name: config-prd

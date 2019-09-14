@@ -11,7 +11,7 @@ spec:
       memory: 102Mi
       cpu: 0.3
     defaultRequest:  # default request
-      memory: 56Mi
+      memory: 102Mi
       cpu: 0.2
     max:  # max limit
       memory: 800Mi

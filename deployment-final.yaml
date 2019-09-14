@@ -19,6 +19,7 @@ spec:
         image: nginx:1.9.1
         ports:
         - containerPort: 80
+#
         lifecycle:
           postStart:
             exec:
@@ -26,18 +27,22 @@ spec:
           preStop:
             exec:
               command: ["/bin/sh","-c","nginx -s quit; while killall -0 nginx; do sleep 1; done"]
+#
         readinessProbe:
           httpGet:
             path: /
             port: 80
           initialDelaySeconds: 15
           periodSeconds: 20
+          successThreshold: 1
         livenessProbe:
           httpGet:
             path: /
             port: 80
           initialDelaySeconds: 15
           periodSeconds: 60
+          successThreshold: 1
+#
         resources:
           requests:
             cpu: "150m"
@@ -45,4 +50,28 @@ spec:
           limits:
             cpu: "325m"
             memory: "175Mi"
+#
+        env:
+        - name: JAVA_HOME_PRD
+          valueFrom:
+            configMapKeyRef:
+              name: java-prd
+              key: JAVA_HOME_PRD
+#
+        volumeMounts:
+          - name: config-prd
+            mountPath: /usr/src/app/config
+          - name: my-secret-volume
+            mountPath: /usr/src/app/secret
+      volumes:
+      - name: config-prd
+        configMap:
+          name: config-prd
+
+        volumeMounts:
+          - name: my-secret-volume
+            mountPath: /usr/src/app/secret
+      - name: my-secret-volume
+        secret:
+          secretName: my-secret
 

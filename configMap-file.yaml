@@ -7,5 +7,5 @@ data:
     <value2>abc</value2>
     </xml>
 metadata:
-  name: my-configxml
+  name: config-prd
   namespace: development
